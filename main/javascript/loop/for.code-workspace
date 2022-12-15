@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "../for"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "for"
+  }
+}
