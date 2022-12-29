@@ -1,6 +1,6 @@
 const express = require("express");
-const cors = require('cors');
-const bodyParser = require("body-parser")
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 let users = [
   {
@@ -83,7 +83,6 @@ let users = [
     balance: 1900000,
     balance_type: false,
   },
-
 ];
 let index = users.length;
 
@@ -96,8 +95,8 @@ app.get("/api/users", (req, res) => {
 
 app.get("/api/users/:id", (req, res) => {
   const car = users.filter((c) => c.id === Number(req.params.id));
-  if (car.length > 0) {
-    res.send(car[0]);
+  if (users.length > 0) {
+    res.send(users[0]);
   } else {
     res.send("Car not found");
   }
@@ -106,12 +105,13 @@ app.get("/api/users/:id", (req, res) => {
 app.post("/api/users", jsonParser, (req, res) => {
   const car = { id: index, ...req.body };
   index++;
-  users.push(car);
-  res.send(car);
+  users.push(users);
+  console.log(users);
+  res.send(users);
 });
 
 app.delete("/api/users", jsonParser, (req, res) => {
-  users = users.filter((car) => car.id !== Number(req.body.id));
+  users = users.filter((users) => users.id !== Number(req.body.id));
   res.send(`Car with given id: ${req.body.id} deleted successfully`);
 });
 
